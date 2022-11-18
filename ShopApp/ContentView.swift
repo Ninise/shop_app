@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var search: String = ""
+    @State private var selectedIndex: Int = 0
+    	 	 
+    private let categories = ["All", "Chair", "Sofa", "Lamp", "Kitchen", "Table"]
     
     var body: some View {
 
@@ -24,21 +26,19 @@ struct ContentView: View {
                 TagLineView()
                     .padding()
                 
-                HStack {
+                SearchAndScanView()
+                
+                ScrollView (.horizontal, showsIndicators: false) {
                     HStack {
-                        Image("Search")
-                            .padding(.trailing, 8)
-                        TextField("Search Furniture", text: $search)
+                        ForEach(0 ..< categories.count) { i in
+                            CategoryView(isActive: i == selectedIndex, text: categories[i])
+                                .onTapGesture {
+                                    selectedIndex = i
+                                }
+                        }
                     }
-                    .padding()
-                    .background(Color(.white))
-                    .cornerRadius(10)
-                    .padding()
-                    
-                    Image("Scan")
-                        .padding()
-                        .background(Color("Primary"))
                 }
+                .padding()
                
             }
         }
@@ -86,5 +86,54 @@ struct TagLineView: View {
         + Text("Furniture!")
             .font(.custom("PlayfairDisplay-Bold", size: 28))
             .foregroundColor(Color("Primary"))
+    }
+}
+
+struct SearchAndScanView: View {
+    @State private var search: String = ""
+
+    
+    var body: some View {
+        HStack {
+            HStack {
+                Image("Search")
+                    .padding(.trailing, 8)
+                TextField("Search Furniture", text: $search)
+            }
+            .padding(.all, 20)
+            .background(Color(.white))
+            .cornerRadius(10)
+            .padding(.trailing)
+            
+            Button(action: {}) {
+                Image("Scan")
+                    .padding()
+                    .background(Color("Primary"))
+                    .cornerRadius(10.0)
+            }
+        }
+        .padding(.horizontal)
+    }
+}
+
+struct CategoryView: View {
+    
+    let isActive: Bool
+    let text: String
+    
+    var body: some View {
+        VStack (alignment: .leading, spacing: 0) {
+            Text(text)
+                .font(.system(size: 18))
+                .fontWeight(.medium)
+                .foregroundColor(isActive ? Color("Primary") : Color.black.opacity(0.5))
+            
+            if (isActive == true) {
+                Color("Primary")
+                    .frame(width: 15, height: 2)
+                    .clipShape(Capsule())
+            }
+        }
+        .padding(.trailing)
     }
 }
