@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11319AE3292B644C007CB979 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11319AE2292B644C007CB979 /* HomeScreen.swift */; };
 		11C2CB08292686A50071501D /* ShopAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C2CB07292686A50071501D /* ShopAppApp.swift */; };
 		11C2CB0A292686A50071501D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C2CB09292686A50071501D /* ContentView.swift */; };
 		11C2CB0C292686A60071501D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11C2CB0B292686A60071501D /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		11319AE2292B644C007CB979 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		11C2CB04292686A50071501D /* ShopApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11C2CB07292686A50071501D /* ShopAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopAppApp.swift; sourceTree = "<group>"; };
 		11C2CB09292686A50071501D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -37,6 +39,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11319AE1292B643A007CB979 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				11319AE2292B644C007CB979 /* HomeScreen.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
 		11C2CAFB292686A40071501D = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +66,7 @@
 		11C2CB06292686A50071501D /* ShopApp */ = {
 			isa = PBXGroup;
 			children = (
+				11319AE1292B643A007CB979 /* Screens */,
 				11C2CB1A292693850071501D /* Info.plist */,
 				11C2CB1529268FE90071501D /* Fonts */,
 				11C2CB07292686A50071501D /* ShopAppApp.swift */,
@@ -157,6 +168,7 @@
 			files = (
 				11C2CB0A292686A50071501D /* ContentView.swift in Sources */,
 				11C2CB08292686A50071501D /* ShopAppApp.swift in Sources */,
+				11319AE3292B644C007CB979 /* HomeScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
