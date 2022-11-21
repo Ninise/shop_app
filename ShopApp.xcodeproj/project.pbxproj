@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		11319AE3292B644C007CB979 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11319AE2292B644C007CB979 /* HomeScreen.swift */; };
+		11319AE5292B72D0007CB979 /* DetailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11319AE4292B72D0007CB979 /* DetailsScreen.swift */; };
 		11C2CB08292686A50071501D /* ShopAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C2CB07292686A50071501D /* ShopAppApp.swift */; };
 		11C2CB0A292686A50071501D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C2CB09292686A50071501D /* ContentView.swift */; };
 		11C2CB0C292686A60071501D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11C2CB0B292686A60071501D /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		11319AE2292B644C007CB979 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		11319AE4292B72D0007CB979 /* DetailsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreen.swift; sourceTree = "<group>"; };
 		11C2CB04292686A50071501D /* ShopApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11C2CB07292686A50071501D /* ShopAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopAppApp.swift; sourceTree = "<group>"; };
 		11C2CB09292686A50071501D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -43,6 +45,7 @@
 			isa = PBXGroup;
 			children = (
 				11319AE2292B644C007CB979 /* HomeScreen.swift */,
+				11319AE4292B72D0007CB979 /* DetailsScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11319AE5292B72D0007CB979 /* DetailsScreen.swift in Sources */,
 				11C2CB0A292686A50071501D /* ContentView.swift in Sources */,
 				11C2CB08292686A50071501D /* ShopAppApp.swift in Sources */,
 				11319AE3292B644C007CB979 /* HomeScreen.swift in Sources */,
