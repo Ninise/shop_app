@@ -14,68 +14,83 @@ struct HomeScreen: View {
     private let categories = ["All", "Chair", "Sofa", "Lamp", "Kitchen", "Table"]
     
     var body: some View {
-        ZStack {
-            
-            Color("Bg")
-                .edgesIgnoringSafeArea(.all)
-            
-            ScrollView {
-                VStack(alignment: .leading) {
-                    AppBarView()
-                    
-                    TagLineView()
-                        .padding()
-                    
-                    SearchAndScanView()
-                    
-                    ScrollView (.horizontal, showsIndicators: false) {
-                        HStack {
-                            ForEach(0 ..< categories.count) { i in
-                                CategoryView(isActive: i == selectedIndex, text: categories[i])
-                                    .onTapGesture {
-                                        selectedIndex = i
-                                    }
+        NavigationView {
+            ZStack {
+                
+                Color("Bg")
+                    .edgesIgnoringSafeArea(.all)
+                
+                ScrollView {
+                    VStack(alignment: .leading) {
+                        AppBarView()
+                        
+                        TagLineView()
+                            .padding()
+                        
+                        SearchAndScanView()
+                        
+                        ScrollView (.horizontal, showsIndicators: false) {
+                            HStack {
+                                ForEach(0 ..< categories.count) { i in
+                                    CategoryView(isActive: i == selectedIndex, text: categories[i])
+                                        .onTapGesture {
+                                            selectedIndex = i
+                                        }
+                                }
                             }
+                            .padding()
                         }
-                        .padding()
-                    }
-                    
-                    Text("Popular")
-                        .font(.custom("PlayfairDisplay-Bold", size: 24))
-                        .padding(.horizontal)
-                    
-                    ScrollView (.horizontal, showsIndicators: false) {
-                        HStack {
-                            ForEach(0 ..< 4) { index in
-                                ProductCardView(image: Image("chair_\(index + 1)"), size: 210)
+                        
+                        Text("Popular")
+                            .font(.custom("PlayfairDisplay-Bold", size: 24))
+                            .foregroundColor(.black)
+                            .padding(.horizontal)
+                        
+                        ScrollView (.horizontal, showsIndicators: false) {
+                            HStack {
+                                ForEach(0 ..< 4) { index in
+                                    NavigationLink(destination: DetailsScreen(), label: {
+                                        ProductCardView(image: Image("chair_\(index + 1)"), size: 210)
+                                    })
+                                    .navigationBarHidden(true)
+                                    .foregroundColor(Color.black)
+                                }
+                                .padding(.trailing)
                             }
-                            .padding(.trailing)
+                            .padding(.leading)
                         }
-                        .padding(.leading)
-                    }
-                    
-                    Text("Best")
-                        .font(.custom("PlayfairDisplay-Bold", size: 24))
-                        .padding(.horizontal)
-                        .padding(.top)
-                    
-                    ScrollView (.horizontal, showsIndicators: false) {
-                        HStack {
-                            ForEach(0 ..< 4) { index in
-                                ProductCardView(image: Image("chair_\(index + 1)"), size: 180)
+                        
+                        Text("Best")
+                            .font(.custom("PlayfairDisplay-Bold", size: 24))
+                            .foregroundColor(.black)
+                            .padding(.horizontal)
+                            .padding(.top)
+                        
+                        ScrollView (.horizontal, showsIndicators: false) {
+                            HStack {
+                                ForEach(0 ..< 4) { index in
+                                    NavigationLink(destination: DetailsScreen(), label: {
+                                        ProductCardView(image: Image("chair_\(index + 1)"), size: 180)
+                                    })
+                                    .navigationBarHidden(true)
+                                    .foregroundColor(Color.black)
+                                  
+                                }
+                                .padding(.trailing)
                             }
-                            .padding(.trailing)
+                            .padding(.leading)
                         }
-                        .padding(.leading)
+                     
+                        Spacer(minLength: 100)
                     }
                     
                 }
+                
+                // Custom bottom Nav bar
+                
+                BottomNavBar()
+                
             }
-            
-            // Custom bottom Nav bar
-            
-            BottomNavBar()
-            
         }
     }
 }
@@ -131,6 +146,7 @@ struct SearchAndScanView: View {
                 Image("Search")
                     .padding(.trailing, 8)
                 TextField("Search Furniture", text: $search)
+                    .foregroundColor(.black)
             }
             .padding(.all, 20)
             .background(Color(.white))
@@ -185,6 +201,8 @@ struct ProductCardView: View {
             Text("Luxery Swedish chair")
                 .font(.title3)
                 .fontWeight(.bold)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .scaledToFit()
             
             HStack (spacing: 2) {
                 ForEach(0 ..< 5) { item in
